@@ -6,10 +6,8 @@ import Dashboard from "./dashboard/page"
 
 export default function Home() {
   const router = useRouter()
-  router.push("/dashboard", { scroll: false })
+  router.push("/dashboard")
   return (
-    <PageWrapper>
-      <Dashboard />
-    </PageWrapper>
+    <PageWrapper>Taking you to the sign in page, please sign in</PageWrapper>
   )
 }
