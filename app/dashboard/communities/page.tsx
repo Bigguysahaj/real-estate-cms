@@ -1,7 +1,7 @@
 "use client"
 
 import { ProjectProps } from "@/lib/types"
-import ViewModule from "../_components/view-module"
+import ViewModule from "../../_components/view-module"
 import { Communities } from "./_default-communities"
 import React, { useState } from "react"
 

@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import ViewModule from "../_components/view-module"
+import ViewModule from "../../_components/view-module"
 import { Developers } from "./_default-developers"
 
 interface Item {

@@ -2,7 +2,8 @@
 
 import PageWrapper from "@/components/wrapper/page-wrapper"
 import { useRouter } from "next/navigation"
-import Dashboard from "./dashboard/page"
+
+// TODO(tanishi) : Sign in/Sign up page here
 
 export default function Home() {
   const router = useRouter()
