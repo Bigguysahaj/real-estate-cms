@@ -141,7 +141,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, onClick, viewMode }) => (
       }`}>
       <CardTitle className='content-center'>{item.title}</CardTitle>
     </CardHeader>
-    <CardContent className={viewMode === "list" ? "flex-1" : ""}>
+    <CardContent className={viewMode === "list" ? "flex-1 p-2" : ""}>
       <img
         src={item.image}
         alt={item.title}
@@ -227,13 +227,13 @@ export default function ViewModule({
         <div className='flex gap-2'>
           <Button
             onClick={() => setViewMode("grid")}
-            variant={viewMode === "grid" ? "default" : "outline"}>
+            variant={viewMode === "grid" ? "secondary" : "outline"}>
             <Grid className='w-4 h-4 mr-1' />
             Grid
           </Button>
           <Button
             onClick={() => setViewMode("list")}
-            variant={viewMode === "list" ? "default" : "outline"}>
+            variant={viewMode === "list" ? "secondary" : "outline"}>
             <List className='w-4 h-4 mr-1' />
             List
           </Button>
