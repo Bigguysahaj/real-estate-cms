@@ -30,32 +30,32 @@ const chartConfig = {
     label: "Visitors",
   },
   chrome: {
-    label: "Chrome",
+    label: "Dubai",
     color: "hsl(var(--chart-1))",
   },
   safari: {
-    label: "Safari",
+    label: "Ajman",
     color: "hsl(var(--chart-2))",
   },
   firefox: {
-    label: "Firefox",
+    label: "New York",
     color: "hsl(var(--chart-3))",
   },
   edge: {
-    label: "Edge",
+    label: "Singapore",
     color: "hsl(var(--chart-4))",
   },
   other: {
-    label: "Other",
+    label: "Beijing",
     color: "hsl(var(--chart-5))",
   },
 } satisfies ChartConfig
 
 export function BarChartComponent() {
   return (
-    <Card className="">
+    <Card className=''>
       <CardHeader>
-        <CardTitle>Bar Chart - Active</CardTitle>
+        <CardTitle>Leads based on Demographic</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>
@@ -63,7 +63,7 @@ export function BarChartComponent() {
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="browser"
+              dataKey='browser'
               tickLine={false}
               tickMargin={10}
               axisLine={false}
@@ -76,7 +76,7 @@ export function BarChartComponent() {
               content={<ChartTooltipContent hideLabel />}
             />
             <Bar
-              dataKey="visitors"
+              dataKey='visitors'
               strokeWidth={2}
               radius={8}
               activeIndex={2}
@@ -95,11 +95,11 @@ export function BarChartComponent() {
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+      <CardFooter className='flex-col items-start gap-2 text-sm'>
+        <div className='flex gap-2 font-medium leading-none'>
+          Trending up by 5.2% this month <TrendingUp className='h-4 w-4' />
         </div>
-        <div className="leading-none text-muted-foreground">
+        <div className='leading-none text-muted-foreground'>
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
