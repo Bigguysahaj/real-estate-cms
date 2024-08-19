@@ -9,12 +9,12 @@ interface Item {
   export const Communities: Item[] = [
       {
         id: 0,
-        title: "Oceanz by Danube",
+        title: "Jumeirah Village Circle",
         content:
-          "Oceanz by Danube Properties at the shoreline of the Dubai Maritime City is an excellent twin-tower development with studios, 1, 2 & 3 bedroom apartments.",
+          "A promising family community is located in the heart of the emirate. It features a variety of landscaped parks and gardens with playgrounds and barbecue areas. The community offers everything necessary for a comfortable stay, such as kindergartens, schools, hospitals, pharmacies, supermarkets, cafes, restaurants, and entertainment venues. Another advantage of the community is its well-developed transport infrastructure and convenient road interchange, which allow residents to quickly get to the most popular Dubai attractions.",
         image:
-          "https://investindanube.com/wp-content/uploads/2023/07/skyz_by_danube.jpg",
-        amenities: ["swimming pool", "club"],
+          "https://binghatti-gems.com/uploads/images/2023-05/JumeirahVillageCircle2.jpg",
+        amenities: ["cafes", "restaurants"],
       }
     ]
     

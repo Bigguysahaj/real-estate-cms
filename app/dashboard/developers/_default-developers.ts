@@ -3,18 +3,18 @@ interface Item {
     title: string
     content: string
     image: string
-    amenities: string[]
+    amenities?: string[]
   }
   
   export const Developers: Item[] = [
       {
         id: 0,
-        title: "Oceanz by Danube",
+        title: "Emaar Properties",
         content:
-          "Oceanz by Danube Properties at the shoreline of the Dubai Maritime City is an excellent twin-tower development with studios, 1, 2 & 3 bedroom apartments.",
+          "With a net asset value of AED 177.5 Bn (USD 48.3 Bn)*, Emaar Properties is among the most admired and valuable real estate development companies in the world. Emaar, which has established competencies in real estate, retail and shopping malls, hospitality, and leisure, shapes new lifestyles through its commitment to design excellence, build quality, and timely delivery.",
         image:
-          "https://investindanube.com/wp-content/uploads/2023/07/skyz_by_danube.jpg",
-        amenities: ["swimming pool", "club"],
+          "https://properties-emaar-com.azureedge.net/wp-content/uploads/2021/09/TURKEY2-440x570.jpg",
+        amenities: ["sky scrapers", "beach front"],
       }
     ]
     
