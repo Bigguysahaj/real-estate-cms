@@ -6,8 +6,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { BarChartComponent } from "../_components/bar-chart"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { BarChartBetter } from "../_components/bar-chart-better"
 
 export default async function Dashboard() {
