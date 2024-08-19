@@ -3,7 +3,7 @@ interface Item {
     title: string
     content: string
     image: string
-    amenities?: string[]
+    amenities: string[]
   }
   
   export const Developers: Item[] = [

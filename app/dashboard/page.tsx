@@ -39,7 +39,7 @@ export default async function Dashboard() {
         <BarChartComponent />
         <BarChartBetter />
       </div>
-      <div className='grid md:grid-cols-2 sm:grid-cols-1 w-full gap-3'>
+      {/* <div className='grid md:grid-cols-2 sm:grid-cols-1 w-full gap-3'>
         <Card className=''>
           <CardHeader className='flex flex-row items-center'>
             <div className='grid gap-2'>
@@ -55,7 +55,7 @@ export default async function Dashboard() {
           <CardContent>
             <div style={{ maxHeight: "320px", overflowY: "auto" }}>
               {" "}
-              {/* Adjust maxHeight according to your design */}
+             
               <main className='flex flex-col gap-2 lg:gap-2 h-[300px] w-full'>
                 <div className='flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm'>
                   <div className='flex flex-col items-center text-center'>
@@ -71,7 +71,7 @@ export default async function Dashboard() {
             </div>
           </CardContent>
         </Card>
-      </div>
+      </div> */}
     </div>
   )
 }
