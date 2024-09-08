@@ -7,7 +7,7 @@ DASHBOARD??
 -> View
 
 PAGE CONTENT
--> Page Name (like Career, About Us)
+-> Page  Name (like Career, About Us)
 -> Content
 -> Status
 -> View

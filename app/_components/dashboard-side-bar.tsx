@@ -32,6 +32,7 @@ const navItems: NavItem[] = [
   { href: '/dashboard/communities', icon: HousePlus, label: 'Communities' },
   { href: '/dashboard/about', icon: Earth, label: 'About Page' },
   { href: '/dashboard/page-content', icon: Folder, label: 'Page Content' },
+  { href: '/dashboard/meta-tags', icon: Folder, label: 'Meta Tags' },
   { href: '/dashboard/team', icon: Building, label: 'Team' },
   {
     href: '/dashboard/homepage-slider',
