@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import React, { useState } from 'react'
-import { TableBody, TableCell, TableRow } from '@/components/ui/table'
-import { Badge } from '@/components/ui/badge'
-import EditMetaDataDialog from '@/app/dashboard/meta-tags/_components/edit-meta-dialog'
+import React, { useState } from "react"
+import { TableBody, TableCell, TableRow } from "@/components/ui/table"
+import { Badge } from "@/components/ui/badge"
+import EditDataDialog from "../edit-dialog/edit-dialog"
 
 export interface BaseItem {
   id: number | string
@@ -21,14 +21,16 @@ export interface CustomTableBodyProps<T extends BaseItem> {
   columns: ColumnDefinition<T>[]
 }
 
-function CustomTableBody<T extends BaseItem>({ 
-  initialData, 
-  columns
+function CustomTableBody<T extends BaseItem>({
+  initialData,
+  columns,
 }: CustomTableBodyProps<T>): React.ReactElement {
   const [data, setData] = useState<T[]>(initialData)
 
   const handleUpdateData = (updatedItem: T) => {
-    setData(data.map(item => item.id === updatedItem.id ? updatedItem : item))
+    setData(
+      data.map((item) => (item.id === updatedItem.id ? updatedItem : item))
+    )
   }
 
   return (
@@ -38,19 +40,21 @@ function CustomTableBody<T extends BaseItem>({
           <TableCell>{item.id}</TableCell>
           {columns.map((column) => (
             <TableCell key={column.key as string}>
-              {column.render ? column.render(item) : (item[column.key as keyof T] as React.ReactNode)}
+              {column.render
+                ? column.render(item)
+                : (item[column.key as keyof T] as React.ReactNode)}
             </TableCell>
           ))}
           <TableCell>
-            <Badge 
-              className={item.active ? 'bg-green-200' : 'bg-red-200'} 
+            <Badge
+              className={item.active ? "bg-green-200" : "bg-red-200"}
               variant="outline"
             >
-              {item.active ? 'Active' : 'Inactive'}
+              {item.active ? "Active" : "Inactive"}
             </Badge>
           </TableCell>
           <TableCell className="text-right">
-            <EditMetaDataDialog item={item} onSave={handleUpdateData} />
+            <EditDataDialog item={item} onSave={handleUpdateData} />
           </TableCell>
         </TableRow>
       ))}

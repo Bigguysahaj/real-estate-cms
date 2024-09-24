@@ -6,14 +6,14 @@ DASHBOARD??
 -> Status (Active or Inactive)
 -> View
 
-PAGE CONTENT
+PAGE CONTENT                            DONE
 -> Page  Name (like Career, About Us)
 -> Content
 -> Status
 -> View
 -> Date
 
-TEAM
+TEAM                          DONE
 -> Image
 -> Name
 -> Designation
@@ -22,7 +22,7 @@ TEAM
 -> View
 -> Date
 
-HOMEPAGE SLIDER
+HOMEPAGE SLIDER            DONE
 -> Main Image
 -> Small Image
 -> Title
@@ -32,7 +32,7 @@ HOMEPAGE SLIDER
 -> View//redirects to the page where homepage video is present
 -> Date
 
-HOMEPAGE VIDEO
+HOMEPAGE VIDEO           DONE
 -> Video
 -> Video URL
 -> Heading
@@ -44,14 +44,14 @@ HOMEPAGE VIDEO
 SLIDER/VIDEO STATUS??
 -> checkbox circular for Slider or Video
 
-POPULAR COMMUNITY
+POPULAR COMMUNITY            DONE
 -> Community name
 -> Image
 -> Staus
 -> View
 -> Date
-
-PROPERTY
+ 
+PROPERTY                  DONE
 -> Developer
 -> Property
 -> Type
@@ -67,7 +67,7 @@ PROPERTY
 -> Status
 -> Date
 
-SERVICES
+SERVICES                      DONE
 -> Heading
 -> Description
 -> Link
@@ -75,14 +75,14 @@ SERVICES
 -> View 
 -> Date
 
-DEVELOPER
+DEVELOPER                      DONE
 -> Image (developer logo)
 -> Location Name
 -> Status 
 -> View
 -> Date
 
-COMMUNITY
+COMMUNITY                  DONE
 -> Image
 -> Community Name
 -> Community Location
@@ -106,13 +106,13 @@ BLOG
 BLOG SLIDER STATUS??
 -> Checkbox circular, Yes and No
 
-PAGES
+PAGES                    DONE
 -> Page Name
 -> Status
 -> View
 -> Date
 
-META TAGS
+META TAGS                  DONE 
 -> Page name
 -> Meta title 
 -> Meta keyword
@@ -121,7 +121,7 @@ META TAGS
 -> View
 -> Date
 
-GET A CALLBACK
+GET A CALLBACK             DONE
 -> Name
 -> Email
 -> Phone
@@ -129,16 +129,16 @@ GET A CALLBACK
 -> Status
 -> Date
 
-CONTACT US    
+CONTACT US                 DONE
 -> Name
 -> Email
 -> Topic
 -> Phone
 -> Message
 
-PROPERTY ENQUIRY
+PROPERTY ENQUIRY           DONE
 -> Property Name
--> Usename
+-> Username
 -> Email
 -> Phone 
 -> Message
@@ -148,7 +148,7 @@ PROPERTY ENQUIRY
 -> status
 -> date
 
-BLOG ENQUIRY
+BLOG ENQUIRY             DONE
 -> Username
 -> Email
 -> Phone
@@ -159,7 +159,7 @@ BLOG ENQUIRY
 -> status
 -> date
 
-BROCHURE ENQUIRY
+BROCHURE ENQUIRY         DONE
 -> Name
 -> Email
 -> Phone
@@ -169,7 +169,7 @@ BROCHURE ENQUIRY
 -> status
 -> Date
 
-PAYMENT PLAN
+PAYMENT PLAN             DONE
 -> Name
 -> Email
 -> Phone
@@ -179,7 +179,7 @@ PAYMENT PLAN
 -> Status
 -> Date
 
-FLOOR PLAN
+FLOOR PLAN               DONE
 -> Name
 -> Email
 -> Phone
@@ -189,7 +189,7 @@ FLOOR PLAN
 -> Status
 -> Date
 
-CAREER
+CAREER                  DONE
 -> Name
 -> Email
 -> CV

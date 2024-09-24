@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import { Button } from '@/components/ui/button'
+import React, { useState } from "react"
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
-import EditMetaDataForm from './edit-meta-form'
-import { BaseItem } from '@/app/_components/table/custom-table-body'
+} from "@/components/ui/dialog"
+import { BaseItem } from "@/app/_components/table/custom-table-body"
+import EditDataForm from "./edit-dialog-form"
 
 interface EditDialogProps<T extends BaseItem> {
   item: T
@@ -16,10 +16,10 @@ interface EditDialogProps<T extends BaseItem> {
   onSave: (updatedItem: T) => void
 }
 
-function EditMetaDataDialog<T extends BaseItem>({
+function EditDataDialog<T extends BaseItem>({
   item,
   onSave,
-  largeFields
+  largeFields,
 }: EditDialogProps<T>): React.ReactElement {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -31,16 +31,23 @@ function EditMetaDataDialog<T extends BaseItem>({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant='outline'>Edit</Button>
+        <Button variant="outline">Edit</Button>
       </DialogTrigger>
-      <DialogContent className='sm:max-w-lg' onPointerDownOutside={(e : any) => e.preventDefault()}>
+      <DialogContent
+        className="sm:max-w-lg"
+        onPointerDownOutside={(e: any) => e.preventDefault()}
+      >
         <DialogHeader>
           <DialogTitle>Edit Data</DialogTitle>
         </DialogHeader>
-        <EditMetaDataForm item={item} onSave={handleSave} largeFields={largeFields} />
+        <EditDataForm
+          item={item}
+          onSave={handleSave}
+          largeFields={largeFields}
+        />
       </DialogContent>
     </Dialog>
   )
 }
 
-export default EditMetaDataDialog
+export default EditDataDialog

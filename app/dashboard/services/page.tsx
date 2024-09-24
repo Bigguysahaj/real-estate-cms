@@ -1,20 +1,40 @@
-import { Button } from "@/components/ui/button"
-import React from "react"
+import { BaseItem } from "@/app/_components/table/custom-table-body"
+import CustomDataTable from "../../_components/table/custom-data-table"
 
-export default function ProjectsPage() {
+interface Career extends BaseItem {
+  heading: string
+  description: string
+  link: React.ReactNode
+  View: React.ReactNode
+  date: string
+}
+
+const initialData: Career[] = [
+  {
+    id: 1,
+    heading: "Property Management",
+    link: (
+      <a className="text-sky-500" href="#">
+        Link
+      </a>
+    ),
+    View: (
+      <a className="text-sky-500" href="#">
+        View
+      </a>
+    ),
+    description:
+      "Newport Homes offer property management services that provide comprehensive solutions, each tailored to meet specific requirements and objectives. Our sole objective is to guarantee utmost convenience to our local and international clients while ensuring th..",
+    active: true,
+    date: "Jan 08,2021",
+  },
+]
+
+export default function Page() {
   return (
-    <main className='flex flex-col gap-2 lg:gap-2 min-h-[90vh] w-full'>
-      <div className='flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm'>
-        <div className='flex flex-col items-center text-center'>
-          <h1 className='text-2xl font-bold tracking-tight'>
-            You have no about pages
-          </h1>
-          <p className='text-sm text-muted-foreground mb-3'>
-            About pages will show once you add them for each website
-          </p>
-          <Button>Create Project</Button>
-        </div>
-      </div>
-    </main>
+    <div>
+      <h1 className="text-2xl font-medium mx-8 mt-4">Career</h1>
+      <CustomDataTable initialData={initialData} />
+    </div>
   )
 }

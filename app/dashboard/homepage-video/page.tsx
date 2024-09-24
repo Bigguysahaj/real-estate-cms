@@ -1,20 +1,48 @@
-import { Button } from "@/components/ui/button"
-import React from "react"
+import { BaseItem } from "@/app/_components/table/custom-table-body"
+import CustomDataTable from "../../_components/table/custom-data-table"
 
-export default function ProjectsPage() {
+interface HomePageVideo extends BaseItem {
+  video: React.ReactNode
+  videoUrl: string
+  heading: string
+  buttonText: string
+  view: React.ReactNode
+  date: string
+}
+
+const initialData: HomePageVideo[] = [
+  {
+    id: 1,
+    video: (
+      <video className="h-14 w-40" controls>
+        <source
+          src="https://dubairealestateproperties.com/admin_dReP060606/images/homepage-video/video_4301_Pexels%20Videos%201128104.mp4"
+          type="video/mp4"
+        />
+      </video>
+    ),
+    videoUrl:
+      "https://dubairealestateproperties.com/admin_dReP060606/images/homepage-video/video_4301_Pexels%20Videos%201128104.mp4",
+    heading: "Beachfront Dubai",
+    buttonText: "Read More",
+    view: (
+      <a
+        className="text-sky-500"
+        href="https://emirates-estates.com/nakheel/nakheel-dubai-island-plots"
+      >
+        View
+      </a>
+    ),
+    active: true,
+    date: "Jan 08,2021",
+  },
+]
+
+export default function Page() {
   return (
-    <main className='flex flex-col gap-2 lg:gap-2 min-h-[90vh] w-full'>
-      <div className='flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm'>
-        <div className='flex flex-col items-center text-center'>
-          <h1 className='text-2xl font-bold tracking-tight'>
-            You have no about pages
-          </h1>
-          <p className='text-sm text-muted-foreground mb-3'>
-            About pages will show once you add them for each website
-          </p>
-          <Button>Create Project</Button>
-        </div>
-      </div>
-    </main>
+    <div>
+      <h1 className="text-2xl font-medium mx-8 mt-4">Home Page Video</h1>
+      <CustomDataTable initialData={initialData} />
+    </div>
   )
 }
