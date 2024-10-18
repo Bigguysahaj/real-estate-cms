@@ -8,66 +8,437 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model user {
-  id                Int      @id @default(autoincrement())
-  created_time      DateTime @default(now())
-  email             String   @unique
-  first_name        String?
-  last_name         String?
-  gender            String?
-  profile_image_url String?
-  user_id           String   @unique
-  subscription      String?
+model Website {
+  id        String   @id @default(uuid())
+  name      String
+  url       String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  pages              WebsitePages[]
+  teams              WebsiteTeams[]
+  homepageSliders    WebsiteHomepageSliders[]
+  homepageVideos     WebsiteHomepageVideos[]
+  properties         WebsiteProperties[]
+  services           WebsiteServices[]
+  developers         WebsiteDevelopers[]
+  communities        WebsiteCommunities[]
+  metaTags           WebsitesMetaTags[]
+  blogs              WebsiteBlogs[]
+  getCallback        WebsitesGetCallback[]
+  popularCommunities WebsitePopularCommunities[]
+
+  @@index([name])
 }
 
-model payments {
-  id               Int      @id @default(autoincrement())
-  created_time     DateTime @default(now())
-  stripe_id        String
-  email            String
-  amount           String
-  payment_time     String
-  payment_date     String
-  currency         String
-  user_id          String
-  customer_details String
-  payment_intent   String
+model Page {
+  id        String   @id @default(uuid())
+  name      String // different pages
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  websites WebsitePages[]
+
+  @@index([name])
 }
 
-model subscriptions {
-  id                        Int      @id @default(autoincrement())
-  created_time              DateTime @default(now())
-  subscription_id           String
-  stripe_user_id            String
-  status                    String
-  start_date                String
-  end_date                  String?
-  plan_id                   String
-  default_payment_method_id String?
-  email                     String
-  user_id                   String
+model Team {
+  id          String   @id @default(uuid())
+  image       String
+  name        String
+  designation String
+  emailId     String
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  websites WebsiteTeams[]
 }
 
-model subscriptions_plans {
+model HomepageSlider {
+  id         String   @id @default(uuid())
+  mainImage  String
+  smallImage String
+  title      String
+  subTitle   String
+  oneLiner   String
+  active     Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  websites WebsiteHomepageSliders[]
+}
+
+model HomepageVideo {
+  id         String   @id @default(uuid())
+  video      String
+  heading    String
+  buttonText String
+  active     Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  websites WebsiteHomepageVideos[]
+}
+
+model Community {
+  id                      String   @id @default(uuid())
+  name                    String
+  location                String
+  description             String
+  area                    String
+  price                   String
+  manageCommunityFacility String
+  active                  Boolean  @default(true)
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+  websites WebsiteCommunities[]
+}
+
+model Property {
+  id                String        @id @default(uuid())
+  developer         String
+  name              String
+  type              String
+  location          String
+  featuredProperty  Boolean
+  paymentPlan       PaymentPlan[]
+  floorPlan         FloorPlan[]
+  pointOfInterest   String[]
+  apartmentFacility String[]
+  sliderImage       String[]
+  active            Boolean       @default(true)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  websites        WebsiteProperties[]
+  PropertyEnquiry PropertyEnquiry[]
+}
+
+model FloorPlan {
+  id          Int     @id @default(autoincrement())
+  planType    String // e.g., "2BHK", "3BHK", "Studio"
+  areaSize    Float
+  rooms       Int
+  bathrooms   Int
+  balcony     Boolean @default(true)
+  imageUrl    String
+  description String?
+
+  details Json? // Can add extra details here
+
+  property   Property @relation(fields: [propertyId], references: [id])
+  propertyId String
+}
+
+model PaymentPlan {
   id           Int      @id @default(autoincrement())
-  created_time DateTime @default(now())
-  plan_id      String
-  name         String
-  description  String
-  amount       String
-  currency     String
-  interval     String
+  planType     String // e.g., maybe enum with "Installment", "Full Payment", "Mortgage"
+  downPayment  Float
+  totalAmount  Float
+  installment  Float // Per month payment for installment plans
+  duration     Int // Duration in months/years
+  interestRate Float? // If there is interest involved (in case of mortgage)
+  currency     String // e.g., "USD", "INR"
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id])
 }
 
-model invoices {
-  id              Int      @id @default(autoincrement())
-  created_time    DateTime @default(now())
-  invoice_id      String
-  subscription_id String
-  amount_paid     String
-  amount_due      String
-  currency        String
-  status          String
-  email           String
-  user_id         String?
+model PopularCommunity {
+  id        String   @id @default(uuid())
+  name      String
+  image     String
+  status    String
+  view      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  websites WebsitePopularCommunities[]
+}
+
+model Service {
+  id          String @id @default(uuid())
+  heading     String
+  description String
+  link        String
+
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  websites WebsiteServices[]
+}
+
+model Developer {
+  id        String   @id @default(uuid())
+  logoUrl   String
+  location  String
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  websites WebsiteDevelopers[]
+}
+
+model Blog {
+  id          String   @id @default(uuid())
+  thumbImage  String
+  mainImage   String
+  SliderImage String[]
+  heading     String
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  websites  WebsiteBlogs[]
+  enquiries BlogEnquiry[]
+}
+
+model MetaTags {
+  id              String   @id @default(uuid())
+  pageName        String
+  metaTitle       String
+  metaKeyword     String
+  metaDescription String
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  websites WebsitesMetaTags[]
+}
+
+model GetCallback {
+  id      String  @id @default(uuid())
+  name    String
+  email   String
+  phone   String
+  message String
+  active  Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  websites WebsitesGetCallback[]
+}
+
+model ContactUs {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  topic     String
+  phone     String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model PropertyEnquiry {
+  id           String   @id @default(uuid())
+  propertyName String
+  username     String
+  email        String
+  phone        String
+  message      String
+  ipAddress    String
+  countryCode  String
+  url          String
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId String
+
+  @@index([countryCode])
+}
+
+model BlogEnquiry {
+  id          Int     @id @default(autoincrement())
+  username    String
+  email       String
+  phone       String
+  message     String
+  ipAddress   String
+  countryCode String
+  url         String
+  active      Boolean @default(true)
+
+  blog      Blog     @relation(fields: [blogId], references: [id])
+  blogId    String
+  createdAt DateTime @default(now())
+}
+
+model BrochureEnquiry {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String
+  ipAddress   String
+  countryCode String
+  url         String
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model PaymentPlanEnquiry {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String
+  ipAddress   String
+  countryCode String
+  url         String
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model FloorPlanEnquiry {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String
+  ipAddress   String
+  countryCode String
+  url         String
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model Career {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  cv          String
+  designation String
+  message     String
+  ipAddress   String
+  countryCode String
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+// Junction Tables
+
+model WebsitePages {
+  website   Website @relation(fields: [websiteId], references: [id])
+  websiteId String
+  page      Page    @relation(fields: [pageId], references: [id])
+  pageId    String
+
+  @@id([websiteId, pageId])
+  @@index([websiteId])
+  @@index([pageId])
+}
+
+model WebsiteTeams {
+  website   Website @relation(fields: [websiteId], references: [id])
+  websiteId String
+  team      Team    @relation(fields: [teamId], references: [id])
+  teamId    String
+
+  @@id([websiteId, teamId])
+  @@index([websiteId])
+}
+
+model WebsiteHomepageSliders {
+  website          Website        @relation(fields: [websiteId], references: [id])
+  websiteId        String
+  homepageSlider   HomepageSlider @relation(fields: [homepageSliderId], references: [id])
+  homepageSliderId String
+
+  @@id([websiteId, homepageSliderId])
+  @@index([websiteId])
+}
+
+model WebsiteHomepageVideos {
+  website         Website       @relation(fields: [websiteId], references: [id])
+  websiteId       String
+  homepageVideo   HomepageVideo @relation(fields: [homepageVideoId], references: [id])
+  homepageVideoId String
+
+  @@id([websiteId, homepageVideoId])
+  @@index([websiteId])
+}
+
+model WebsiteCommunities {
+  website     Website   @relation(fields: [websiteId], references: [id])
+  websiteId   String
+  community   Community @relation(fields: [communityId], references: [id])
+  communityId String
+
+  @@id([websiteId, communityId])
+  @@index([websiteId])
+}
+
+model WebsitePopularCommunities {
+  website            Website          @relation(fields: [websiteId], references: [id])
+  websiteId          String
+  popularCommunity   PopularCommunity @relation(fields: [popularCommunityId], references: [id])
+  popularCommunityId String
+
+  @@id([websiteId, popularCommunityId])
+  @@index([websiteId])
+}
+
+model WebsiteProperties {
+  website    Website  @relation(fields: [websiteId], references: [id])
+  websiteId  String
+  property   Property @relation(fields: [propertyId], references: [id])
+  propertyId String
+
+  @@id([websiteId, propertyId])
+  @@index([websiteId])
+}
+
+model WebsitesGetCallback {
+  website       Website     @relation(fields: [websiteId], references: [id])
+  websiteId     String
+  getCallback   GetCallback @relation(fields: [getCallbackId], references: [id])
+  getCallbackId String
+
+  @@id([websiteId, getCallbackId])
+  @@index([websiteId])
+}
+
+model WebsitesMetaTags {
+  website    Website  @relation(fields: [websiteId], references: [id])
+  websiteId  String
+  metaTags   MetaTags @relation(fields: [metaTagsId], references: [id])
+  metaTagsId String
+
+  @@id([websiteId, metaTagsId])
+  @@index([websiteId])
+}
+
+model WebsiteBlogs {
+  website   Website @relation(fields: [websiteId], references: [id])
+  websiteId String
+  blogs     Blog    @relation(fields: [blogId], references: [id])
+  blogId    String
+
+  @@id([websiteId, blogId])
+  @@index([websiteId])
+}
+
+model WebsiteDevelopers {
+  website     Website   @relation(fields: [websiteId], references: [id])
+  websiteId   String
+  developers  Developer @relation(fields: [developerId], references: [id])
+  developerId String
+
+  @@id([websiteId, developerId])
+  @@index([websiteId])
+}
+
+model WebsiteServices {
+  website   Website @relation(fields: [websiteId], references: [id])
+  websiteId String
+  services  Service @relation(fields: [serviceId], references: [id])
+  serviceId String
+
+  @@id([websiteId, serviceId])
+  @@index([websiteId])
 }

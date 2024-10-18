@@ -6,14 +6,14 @@ DASHBOARD??
 -> Status (Active or Inactive)
 -> View
 
-PAGE CONTENT                            DONE
+PAGE CONTENT                            DONE r
 -> Page  Name (like Career, About Us)
 -> Content
 -> Status
 -> View
 -> Date
 
-TEAM                          DONE
+TEAM                          DONE r
 -> Image
 -> Name
 -> Designation
@@ -22,7 +22,7 @@ TEAM                          DONE
 -> View
 -> Date
 
-HOMEPAGE SLIDER            DONE
+HOMEPAGE SLIDER            DONE r
 -> Main Image
 -> Small Image
 -> Title
@@ -32,7 +32,7 @@ HOMEPAGE SLIDER            DONE
 -> View//redirects to the page where homepage video is present
 -> Date
 
-HOMEPAGE VIDEO           DONE
+HOMEPAGE VIDEO           DONE r
 -> Video
 -> Video URL
 -> Heading
@@ -41,17 +41,17 @@ HOMEPAGE VIDEO           DONE
 -> View 
 -> Date
 
-SLIDER/VIDEO STATUS??
+SLIDER/VIDEO STATUS?? n
 -> checkbox circular for Slider or Video
 
-POPULAR COMMUNITY            DONE
+POPULAR COMMUNITY            DONE r
 -> Community name
 -> Image
 -> Staus
 -> View
 -> Date
  
-PROPERTY                  DONE
+PROPERTY                  DONE r
 -> Developer
 -> Property
 -> Type
@@ -67,7 +67,7 @@ PROPERTY                  DONE
 -> Status
 -> Date
 
-SERVICES                      DONE
+SERVICES                      DONE r
 -> Heading
 -> Description
 -> Link
@@ -75,14 +75,14 @@ SERVICES                      DONE
 -> View 
 -> Date
 
-DEVELOPER                      DONE
+DEVELOPER                      DONE r
 -> Image (developer logo)
 -> Location Name
 -> Status 
 -> View
 -> Date
 
-COMMUNITY                  DONE
+COMMUNITY                  DONE r
 -> Image
 -> Community Name
 -> Community Location
@@ -94,7 +94,7 @@ COMMUNITY                  DONE
 -> View
 -> Date
 
-BLOG
+BLOG r
 -> Thumb image
 -> Main image
 -> Slider image
@@ -106,13 +106,13 @@ BLOG
 BLOG SLIDER STATUS??
 -> Checkbox circular, Yes and No
 
-PAGES                    DONE
+PAGES                    DONE r
 -> Page Name
 -> Status
 -> View
 -> Date
 
-META TAGS                  DONE 
+META TAGS                  DONE r
 -> Page name
 -> Meta title 
 -> Meta keyword
@@ -121,7 +121,7 @@ META TAGS                  DONE
 -> View
 -> Date
 
-GET A CALLBACK             DONE
+GET A CALLBACK             DONE r
 -> Name
 -> Email
 -> Phone
@@ -129,14 +129,14 @@ GET A CALLBACK             DONE
 -> Status
 -> Date
 
-CONTACT US                 DONE
+CONTACT US                 DONE r
 -> Name
 -> Email
 -> Topic
 -> Phone
 -> Message
 
-PROPERTY ENQUIRY           DONE
+PROPERTY ENQUIRY           DONE r
 -> Property Name
 -> Username
 -> Email
@@ -148,7 +148,7 @@ PROPERTY ENQUIRY           DONE
 -> status
 -> date
 
-BLOG ENQUIRY             DONE
+BLOG ENQUIRY             DONE r
 -> Username
 -> Email
 -> Phone
@@ -159,7 +159,7 @@ BLOG ENQUIRY             DONE
 -> status
 -> date
 
-BROCHURE ENQUIRY         DONE
+BROCHURE ENQUIRY         DONE r
 -> Name
 -> Email
 -> Phone
@@ -169,7 +169,7 @@ BROCHURE ENQUIRY         DONE
 -> status
 -> Date
 
-PAYMENT PLAN             DONE
+PAYMENT PLAN ENQUIRY          DONE r
 -> Name
 -> Email
 -> Phone
@@ -179,7 +179,7 @@ PAYMENT PLAN             DONE
 -> Status
 -> Date
 
-FLOOR PLAN               DONE
+FLOOR PLAN ENQUIRY              DONE r
 -> Name
 -> Email
 -> Phone
@@ -189,7 +189,7 @@ FLOOR PLAN               DONE
 -> Status
 -> Date
 
-CAREER                  DONE
+CAREER                  DONE r
 -> Name
 -> Email
 -> CV
